@@ -10,18 +10,20 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen flex bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-          <Sidebar />
-          <div className="flex-1 flex flex-col">
-            <main className="flex-1 p-4 md:p-8">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/country/:code" element={<CountryDetails />} />
-                <Route path="/favorites" element={<Favorites />} />
-              </Routes>
-            </main>
-            <Footer />
+        <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+          <div className="flex flex-1">
+            <Sidebar />
+            <div className="flex-1 ml-0 md:ml-64 overflow-y-auto">
+              <main className="flex-1 p-4 md:p-8">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/country/:code" element={<CountryDetails />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                </Routes>
+              </main>
+            </div>
           </div>
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>

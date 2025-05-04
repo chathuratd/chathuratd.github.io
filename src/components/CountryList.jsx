@@ -10,23 +10,23 @@ function CountryList({ countries, loading, error }) {
   }
 
   return (
-    <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {loading
         ? Array(skeletonCount)
             .fill()
             .map((_, index) => (
-              <CountryCardSkeleton key={index} className="mb-6 break-inside-avoid" />
+              <CountryCardSkeleton key={index} className="w-full" />
             ))
         : countries.length > 0
         ? countries.map((country) => (
             <CountryCard
               key={country.cca3}
               country={country}
-              className="mb-6 break-inside-avoid"
+              className="w-full"
             />
           ))
         : !loading && (
-            <div className="text-center py-16">
+            <div className="col-span-full text-center py-16">
               <p className="text-lg text-gray-600 dark:text-gray-400">
                 No countries found. Try adjusting your search or filter.
               </p>

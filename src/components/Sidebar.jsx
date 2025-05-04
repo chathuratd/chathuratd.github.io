@@ -42,7 +42,7 @@ function Sidebar() {
         </svg>
       </button>
       <div
-        className={`fixed md:static top-0 left-0 h-screen w-64 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-2xl transform ${
+        className={`fixed top-0 left-0 h-screen w-64 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-2xl transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0 transition-transform duration-300 z-40 flex flex-col justify-between`}
       >

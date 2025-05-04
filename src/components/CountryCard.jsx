@@ -3,12 +3,13 @@ import { formatPopulation } from '../utils/formatters';
 import FavoriteButton from './FavoriteButton';
 import { useState } from 'react';
 
-function CountryCard({ country }) {
+function CountryCard({ country, className }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="card hover:scale-105 hover:shadow-2xl transition-all duration-300 animate-bounce-in"
+      className={`card rounded-lg overflow-hidden transition-all duration-200 relative ${className}`}
+      style={{ transform: isHovered ? 'scale(1.01)' : 'scale(1)' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -17,10 +18,20 @@ function CountryCard({ country }) {
           <img
             src={country.flags.png}
             alt={`Flag of ${country.name.common}`}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="p-6">
+        <div className="p-6 min-h-[200px]">
+          <div className="flex justify-end mb-2">
+            <div
+              className={`transition-opacity duration-200 ${
+                isHovered ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ pointerEvents: isHovered ? 'auto' : 'none' }}
+            >
+              <FavoriteButton country={country} />
+            </div>
+          </div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 truncate">
             {country.name.common}
           </h2>
@@ -45,14 +56,6 @@ function CountryCard({ country }) {
           </div>
         </div>
       </Link>
-      <div
-        className={`transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{ pointerEvents: isHovered ? 'auto' : 'none' }}
-      >
-        <FavoriteButton country={country} />
-      </div>
     </div>
   );
 }
