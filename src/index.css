@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200 shadow-md;
+}
+
+.btn-primary {
+  @apply bg-purple-600 text-white hover:bg-purple-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+}
+
+.input {
+  @apply w-full p-3 border border-gray-300 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:border-gray-600 dark:text-gray-200;
+}
+
+.select {
+  @apply w-full p-3 border border-gray-300 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:border-gray-600 dark:text-gray-200;
+}
+
+.card {
+  @apply bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden transition-all duration-300;
+}
