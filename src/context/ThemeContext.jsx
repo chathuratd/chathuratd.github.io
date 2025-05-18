@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect } from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useSessionStorage } from '../hooks/useLocalStorage';
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [darkMode, setDarkMode] = useLocalStorage(
+  const [darkMode, setDarkMode] = useSessionStorage(
     'darkMode',
     window.matchMedia('(prefers-color-scheme: dark)').matches
   );

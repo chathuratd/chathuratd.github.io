@@ -1,7 +1,7 @@
-import { useLocalStorage } from './useLocalStorage';
+import { useSessionStorage } from './useLocalStorage';
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useLocalStorage('favorites', []);
+  const [favorites, setFavorites] = useSessionStorage('favorites', []);
 
   const addFavorite = (country) => {
     setFavorites((prev) => {
